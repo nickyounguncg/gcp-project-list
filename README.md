@@ -2,11 +2,16 @@
 Scripts to pull information about projects from Google Cloud Platform.
 
 ## Instructions 
+ - Clone this repo locally.
+ 
+ - Open Google Cloud Shell in your browser as a Org Admin / Super Admin / Someone with permissions to list all projects in all folders in all orgs: https://console.cloud.google.com/home/dashboard?cloudshell=true
 
- - If you're running this locally with gcloud, or in browser, remember to make these scripts executable ( chmod u+x get-project-list.sh && chmod u+x get-project-owners.sh)
+ - Use the in-browser option to upload the two shell scripts into your cloud shell
  
- - Open Google Cloud Shell in your browser: https://console.cloud.google.com/home/dashboard?cloudshell=true
+ - Ensure the two files are executable
  
+ ```chmod u+x get-project-list.sh && chmod u+x get-project-owners.sh```
+
  - Run get-project-list.sh (and pipe the output to a CSV file) to get the list of projects associated with your Organization ID. If you want to get a list of projects in your whole GCP environment, whether they are associated with your Org ID or not, run the script without the Org ID parameter. Note: The first time, you'll be prompted to Auth.
  
  ``` ./get-project-list.sh 123456789 > list.csv ```
@@ -21,7 +26,7 @@ Scripts to pull information about projects from Google Cloud Platform.
  
  ``` ./get-project-owners.sh list.csv > project-data.csv```
  
- - Download the project-data.csv file and use it in a Google Data Studuo dashboard or use it to email project owners...whatever you need to do :-)
+ - Download the project-data.csv file and use it in a Google Data Studio dashboard or use it to email project owners...whatever you need to do :-)
  
  ## AppScript Considerations & Projects without "User" Owners
  
