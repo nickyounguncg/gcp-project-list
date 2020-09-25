@@ -1,7 +1,9 @@
 #!/bin/bash
 #
 # This script takes a CSV that contains project information (from the other script in this repo)
-# then looks up the ownership...then outputs the project info + owners in a CSV format
+# then looks up the ownership...then outputs the project info + owners in a CSV format.
+# Note - this does not output info on projects without users as owners. IE: Will not output
+# info for projects where serviceaccounts are the owners.
 # 
 # Run this while writing the output to a CSV on disk (instead of STDOUT) and you'll have a nice
 # data file that can be charted using Google Data Studio, or otherwise filtered/analyzed.
@@ -21,12 +23,9 @@ else
 		do
 		# if the owner is a user (not a service account), then print the user info
 		if echo $robot | grep -q user; then
-			printf "$create_time,$name,$projectNumber,$projectId,$lifecycleState,";
+			printf "$create_time,$name,$projectNumber,$projectId,$lifecycleState";
 			printf $robot | grep user
 			#printf "\n";
-		else
-			# no user owner was found, so just print a standard field in that place for easy reporting
-			printf "$create_time,$name,$projectNumber,$projectId,$lifecycleState,NO_OWNER_USER\n";
 		fi
 		done
 
