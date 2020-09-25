@@ -3,6 +3,8 @@ Scripts to pull information about projects from Google Cloud Platform.
 
 ## Instructions 
 
+ - If you're running this locally with gcloud, or in browser, remember to make these scripts executable ( chmod u+x get-project-list.sh && chmod u+x get-project-owners.sh)
+ 
  - Open Google Cloud Shell in your browser: https://console.cloud.google.com/home/dashboard?cloudshell=true
  
  - Run get-project-list.sh (and pipe the output to a CSV file) to get the list of projects associated with your Organization ID. If you want to get a list of projects in your whole GCP environment, whether they are associated with your Org ID or not, run the script without the Org ID parameter. Note: The first time, you'll be prompted to Auth.
