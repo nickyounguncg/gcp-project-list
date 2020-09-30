@@ -34,13 +34,11 @@ Appscript projects are not associated with your Org ID by default, and do not ha
  
 ## Big domain? Lot's of projects?
 
-You can optionally run a split command on the list.csv after the first step, so you have a series of smaller CSV's to work with for the next owner lookup step. IE: do something like this:
+You can optionally run a split command on the list.csv after the first step, so you have a series of smaller CSV's to work with for the next owner lookup step.
 
-``` split -dl 500 --additional-suffix=.csv list.csv split_list_```
+Which will result in several files named smaller-file-aa.csv, smaller-file-ab.csv etc...which can then be passed into the get-owners script:
 
-Which will result in several files named split_list_aa.csv, split_list_ab.csv etc...which can then be passed into the get-owners script:
-
- ``` ./get-project-owners.sh split_list_aa.csv >> project-data.csv```
+ ``` ./get-project-owners.sh smaller-file-aa.csv >> project-data.csv```
  
 This is usually only necessary for a massive number of projects, or if you want to check easily for progress along the way rather than waiting for it to end. I figured this out after being booted from my cloud shell for non-activity a few times, even when i thought i was paying attention.
 
