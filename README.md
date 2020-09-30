@@ -12,7 +12,7 @@ Scripts to pull information about projects from Google Cloud Platform.
  
  ```chmod u+x get-project-list.sh && chmod u+x get-project-owners.sh```
 
- - Run get-project-list.sh (and pipe the output to a CSV file) to get the list of projects associated with your Organization ID. If you want to get a list of projects in your GCP environment that are not in your Org ID, or in the root folder, you can run the script without the Org ID parameter. Note: The first time, you'll be prompted to Auth.
+ - Run get-project-list.sh (and pipe the output to a CSV file) to get the list of projects associated with your Organization ID. If you want to get a list of projects in your GCP environment that are not in your Org ID, you can run the script without the Org ID parameter. Note: The first time, you'll be prompted to Auth.
  
  ``` ./get-project-list.sh 123456789 > list.csv ```
  
