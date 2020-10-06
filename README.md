@@ -32,7 +32,7 @@ Scripts to pull information about projects from Google Cloud Platform.
  
 Appscript projects are not associated with your Org ID by default, and do not have users as owners. They have serviceaccounts as owners. So...if you're get-project-list.sh on your full domain, you'll get those projects too....and when you run get-project-owners.sh on it, you'll get less results...because the script ignores owners that are not users.
  
-## Big domain? Lot's of projects?
+## Big domain? Too many projects?
 
 You can optionally run a split command on the list.csv after the first step, so you have a series of smaller CSV's to work with for the next owner lookup step.
 
