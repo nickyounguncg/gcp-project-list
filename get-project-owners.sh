@@ -23,7 +23,7 @@ else
 		do
 		# if the owner is a user (not a service account), then print the user info
 		if echo $robot | grep -q user; then
-			printf "$create_time,$name,$projectNumber,$projectId,$lifecycleState";
+			printf "$create_time,$name,$projectNumber,$projectId,$lifecycleState,";
 			printf $robot | grep user
 			#printf "\n";
 		fi
