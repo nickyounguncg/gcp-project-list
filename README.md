@@ -30,19 +30,21 @@ Scripts to pull information about projects from Google Cloud Platform.
  
  ## AppScript Considerations & Projects without "User" Owners
  
-Appscript projects are not associated with your Org ID by default, and do not have users as owners. They have serviceaccounts as owners. So...if you're get-project-list.sh on your full domain, you'll get those projects too....and when you run get-project-owners.sh on it, you'll get less results...because the script ignores owners that are not users.
+Appscript projects are not associated with your Org ID by default, and do not have users as owners. They have serviceaccounts as owners. So...if you run get-project-list.sh on your full domain, you'll get those projects too....and when you run get-project-owners.sh on it, you'll get less results...because the script ignores owners that are not users.
  
-## Big domain? Lot's of projects?
+## Big domain? Too many projects?
 
-You can optionally run a split command on the list.csv after the first step, so you have a series of smaller CSV's to work with for the next owner lookup step. IE: do something like this:
+You can optionally run a split command on the list.csv after the first step, so you have a series of smaller CSV's to work with for the next owner lookup step.
 
-``` split -dl 500 --additional-suffix=.csv list.csv split_list_```
+Which will result in several files named smaller-file-aa.csv, smaller-file-ab.csv etc...which can then be passed into the get-owners script:
 
-Which will result in several files named split_list_aa.csv, split_list_ab.csv etc...which can then be passed into the get-owners script:
-
- ``` ./get-project-owners.sh split_list_aa.csv >> project-data.csv```
+ ``` ./get-project-owners.sh smaller-file-aa.csv >> project-data.csv```
  
 This is usually only necessary for a massive number of projects, or if you want to check easily for progress along the way rather than waiting for it to end. I figured this out after being booted from my cloud shell for non-activity a few times, even when i thought i was paying attention.
+
+## Gotchas
+
+For now, there's an error when you start running the get-project-owners.sh script, because it looks at the first row of the csv and attempts to look up owners for it (but it cannot because that's the column headings). One day i'll fix that...but for now, just ignore.
 
 ## Attribution & Contact Info
 
